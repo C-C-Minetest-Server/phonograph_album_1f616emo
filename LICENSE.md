@@ -1,4 +1,9 @@
-    name: desc (PLACEHOLDER!)
+# Licenses of `phonograph_album_1f616emo`
+
+## License of code
+
+```
+    phonograph_album_1f616emo: Songs from 1F616EMO for phonographs
     Copyright (C) 2024  1F616EMO
 
     This library is free software; you can redistribute it and/or
@@ -14,3 +19,10 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+```
+
+## License of media
+
+Unless otherwise specified, this aplies to all media in this repository.
+
+This work © 2024 by 1F616EMO is licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
