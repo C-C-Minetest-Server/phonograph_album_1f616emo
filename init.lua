@@ -29,14 +29,21 @@ local album = phonograph.register_album("phonograph_album_1f616emo:album_1f616em
     artist = "1F616EMO", -- Not translated on purpose
 })
 
+local MP = minetest.get_modpath("phonograph_album_1f616emo")
+local function songpath(name)
+    return table.concat({MP, "phonographs", name .. ".ogg"}, DIR_DELIM)
+end
+
+assert(phonograph.send_song,
+    "Please upgrade your Phonograph mod to commit f689f79 or later.")
+
 album:register_song("garden", {
     title = S("The Path to the Garden"),
     short_description = nil,
     long_description = nil,
     artist = nil, -- 1F616EMO
-    spec = { -- a SimpleSoundSpec
-        name = "phonograph_album_1f616emo_garden",
-    }
+    filepath = songpath("phonograph_album_1f616emo_garden"),
+    spec = {},
 })
 
 album:register_song("arcade", {
@@ -44,9 +51,8 @@ album:register_song("arcade", {
     short_description = nil,
     long_description = nil,
     artist = nil, -- 1F616EMO
-    spec = { -- a SimpleSoundSpec
-        name = "phonograph_album_1f616emo_arcade",
-    }
+    filepath = songpath("phonograph_album_1f616emo_arcade"),
+    spec = {},
 })
 
 album:register_song("domain_dream", {
@@ -54,9 +60,8 @@ album:register_song("domain_dream", {
     short_description = nil,
     long_description = nil,
     artist = nil, -- 1F616EMO
-    spec = { -- a SimpleSoundSpec
-        name = "phonograph_album_1f616emo_domain_dream",
-    }
+    filepath = songpath("phonograph_album_1f616emo_domain_dream"),
+    spec = {},
 })
 
 album:register_song("plain", {
@@ -64,7 +69,6 @@ album:register_song("plain", {
     short_description = nil,
     long_description = nil,
     artist = nil, -- 1F616EMO
-    spec = { -- a SimpleSoundSpec
-        name = "phonograph_album_1f616emo_plain",
-    }
+    filepath = songpath("phonograph_album_1f616emo_plain"),
+    spec = {},
 })
