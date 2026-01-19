@@ -25,50 +25,41 @@ local album = phonograph.register_album("phonograph_album_1f616emo:album_1f616em
     title = S("1F616EMO Collection"),
     short_description = S("Songs composed by 1F616EMO"),
     long_description = S("Random songs composed by 1F616EMO at different time"),
-    cover = nil, -- use default cover for now
+    cover = nil,         -- use default cover for now
     artist = "1F616EMO", -- Not translated on purpose
 })
 
 local MP = core.get_modpath("phonograph_album_1f616emo")
 local function songpath(name)
-    return table.concat({MP, "phonographs", name .. ".ogg"}, DIR_DELIM)
+    return table.concat({ MP, "phonographs", "phonograph_album_1f616emo_" .. name .. ".ogg" }, DIR_DELIM)
 end
 
 assert(phonograph.send_song,
     "Please upgrade your Phonograph mod to commit f689f79 or later.")
 
-album:register_song("garden", {
-    title = S("The Path to the Garden"),
-    short_description = nil,
-    long_description = nil,
-    artist = nil, -- 1F616EMO
-    filepath = songpath("phonograph_album_1f616emo_garden"),
-    spec = {},
-})
+for _, data in ipairs({
+    { "garden",       S("The Path to the Garden"), nil },
+    { "arcade",       S("Arcade"),                 nil },
+    { "domain_dream", S("Domain of Dreams"),       nil }, -- orig title: Domain of Dreams
+    { "plain",        S("Plain"),                  nil }
+}) do
+    local id, title, short_description = unpack(data)
+    album:register_song(id, {
+        title = title,
+        short_description = short_description,
+        long_description = nil,
+        artist = nil, -- 1F616EMO
+        spec = {
+            filepath = songpath(id),
+        },
+        multichannel_specs = {
+            {
+                filepath = songpath(id .. "_ch0"),
+            },
+            {
+                filepath = songpath(id .. "_ch1"),
+            },
+        },
 
-album:register_song("arcade", {
-    title = S("Arcade"),
-    short_description = nil,
-    long_description = nil,
-    artist = nil, -- 1F616EMO
-    filepath = songpath("phonograph_album_1f616emo_arcade"),
-    spec = {},
-})
-
-album:register_song("domain_dream", {
-    title = S("Domain of Dreams"), -- orig title: Domain of Dream
-    short_description = nil,
-    long_description = nil,
-    artist = nil, -- 1F616EMO
-    filepath = songpath("phonograph_album_1f616emo_domain_dream"),
-    spec = {},
-})
-
-album:register_song("plain", {
-    title = S("Plain"),
-    short_description = nil,
-    long_description = nil,
-    artist = nil, -- 1F616EMO
-    filepath = songpath("phonograph_album_1f616emo_plain"),
-    spec = {},
-})
+    })
+end
