@@ -19,7 +19,7 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 ]]
 
-local S = minetest.get_translator("phonograph_album_1f616emo")
+local S = core.get_translator("phonograph_album_1f616emo")
 
 local album = phonograph.register_album("phonograph_album_1f616emo:album_1f616emo", {
     title = S("1F616EMO Collection"),
@@ -29,7 +29,7 @@ local album = phonograph.register_album("phonograph_album_1f616emo:album_1f616em
     artist = "1F616EMO", -- Not translated on purpose
 })
 
-local MP = minetest.get_modpath("phonograph_album_1f616emo")
+local MP = core.get_modpath("phonograph_album_1f616emo")
 local function songpath(name)
     return table.concat({MP, "phonographs", name .. ".ogg"}, DIR_DELIM)
 end
